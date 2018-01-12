@@ -44,7 +44,6 @@ for i in files:
     isplit = i.split('.')
     base_type = isplit[0]
     backup_time_list = [int(e) for e in isplit[1].split('_')[0].split('-')]
-    backup_time = datetime.date(backup_time_list[0], backup_time_list[1], backup_time_list[2])
     backup_day = backup_time_list[2]
     if base_types_dict[base_type] == 0 and backup_day != 1:
         destroy(i)
