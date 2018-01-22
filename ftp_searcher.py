@@ -1,11 +1,10 @@
 import paramiko, datetime
-from config import PATH_IN_FTP, FTP_HOST, FTP_USER, FTP_PASSWD
+
+from config import FTP_HOST, FTP_PASSWD, FTP_USER, PATH_IN_FTP, COUNT
 
 """
 Small tool for removing old backups
 """
-
-COUNT = 14
 
 ssh_client = paramiko.SSHClient()
 ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
