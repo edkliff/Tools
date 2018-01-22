@@ -8,9 +8,9 @@ Small tool for removing old files in temp directories,
 """
 
 
-DIRECTORY = '/opt/round.me/upload'
+DIRECTORY = '/home/rm-do/src/'
 # count of days for files. All files in directory older then this count will be removed
-MAX_DELTA = 10
+MAX_DELTA = 1
 # in minutes
 PAUSE = 60
 
@@ -23,12 +23,13 @@ def lists():
 
 def deletion(time, files_list):
     for file in files_list:
-        time_file = os.path.getmtime(file_place + file)
-        time_file = datetime.datetime.fromtimestamp(time_file)
-        delta = time - time_file
-        if delta.days > delta_days:
-            print('Removing: {}'.format(file_place + file))
-            os.remove(file_place + file)
+        if os.path.isfile(file_place + file):
+            time_file = os.path.getmtime(file_place + file)
+            time_file = datetime.datetime.fromtimestamp(time_file)
+            delta = time - time_file
+            if delta.days > delta_days:
+                print('Removing: {}'.format(file_place + file))
+                os.remove(file_place + file)
 
 
 parser = argparse.ArgumentParser(description='Simple deletion for old files')
@@ -50,6 +51,7 @@ if file_place[-1] != '/':
 
 while True:
     time_now = datetime.datetime.now()
+    print(time_now.)
     content = lists()
     deletion(time_now, content)
     sleep(period * 60)
