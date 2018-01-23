@@ -2,13 +2,14 @@ import os
 import datetime
 from time import sleep
 import argparse
+from sys import stdout
 
 """
 Small tool for removing old files in temp directories, 
 """
 
 
-DIRECTORY = '/home/rm-do/src/'
+DIRECTORY = '/opt/round.me/upload/'
 # count of days for files. All files in directory older then this count will be removed
 MAX_DELTA = 1
 # in minutes
@@ -27,7 +28,7 @@ def deletion(time, files_list):
             time_file = os.path.getmtime(file_place + file)
             time_file = datetime.datetime.fromtimestamp(time_file)
             delta = time - time_file
-            if delta.days > delta_days:
+            if delta.days >= delta_days:
                 print('Removing: {}'.format(file_place + file))
                 os.remove(file_place + file)
 
@@ -36,13 +37,14 @@ parser = argparse.ArgumentParser(description='Simple deletion for old files')
 parser.add_argument('--dest', action='store', type=str, default=DIRECTORY, help='directory for cleaning, string')
 parser.add_argument('--days', action='store', type=int, default=MAX_DELTA,
                     help='count of days for files. All files in directory older then this count will be removed, int')
-parser.add_argument('--period', action='store', type=int, default=PAUSE,
+parser.add_argument('--paus', action='store', type=int, default=PAUSE,
                     help='how many minutes script wait before next deletion, int')
 arguments = parser.parse_args()
 file_place = arguments.dest
-delta_days = arguments.days
-period = arguments.period
+delta_days = int(arguments.days)
+period = int(arguments.paus)
 
+print(arguments)
 
 if file_place[-1] != '/':
     file_place = file_place + '/'
@@ -51,7 +53,8 @@ if file_place[-1] != '/':
 
 while True:
     time_now = datetime.datetime.now()
-    print(time_now.)
+    print(str(time_now))
     content = lists()
     deletion(time_now, content)
+    stdout.flush()
     sleep(period * 60)
