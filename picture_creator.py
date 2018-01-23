@@ -4,10 +4,10 @@ from random import randint
 
 FILE = 'pic.jpg'
 TYPE = 1
-XSIZE = 500
-YSIZE = 500
+XSIZE = 10000
+YSIZE = 5000
 
-parser = argparse.ArgumentParser(description='Simple deletion for old files')
+parser = argparse.ArgumentParser(description='Picture generation')
 parser.add_argument('--dest', action='store', type=str, default=FILE,
                     help='output filename, string')
 parser.add_argument('--type', action='store', type=int, default=TYPE,
@@ -28,6 +28,11 @@ y_size = arguments.ysize
 file = Image.new('RGB', (x_size, y_size))
 draw = ImageDraw.Draw(file)
 
+
+def draw_furball():
+    pass
+
+
 # Noise
 
 if content == 1:
@@ -37,6 +42,13 @@ if content == 1:
             if (x % 100 == 0) and (y % 100 == 0):
                 print(x, y)
 
+# Fur
+elif content == 2:
+    for x in range(0, x_size):
+        for y in range(0, y_size):
+            draw_furball()
+            if (x % 100 == 0) and (y % 100 == 0):
+                print(x, y)
 
 
 file.save(filename, "JPEG")
