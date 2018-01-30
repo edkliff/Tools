@@ -1,8 +1,7 @@
 from PIL import Image
 from datetime import datetime
 from subprocess import call
-from math import ceil
-import xlwt
+
 
 MED = 30
 
@@ -10,9 +9,9 @@ size = (1000, 1000)
 PIL_times = []
 IM_times = []
 
-i = 2
+i = 1
 
-for z in range(10000, 21000, 1000):
+for z in range(1000, 21000, 1000):
     res_times = []
     time = datetime.now()
     summ = time - time
@@ -33,7 +32,7 @@ for z in range(10000, 21000, 1000):
 print(PIL_times)
 
 
-for z in range(10000, 21000, 1000):
+for z in range(1000, 21000, 1000):
     res_times = []
     time = datetime.now()
     summ = time - time

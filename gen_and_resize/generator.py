@@ -19,7 +19,7 @@ ws = wb.add_sheet('A Test Sheet', cell_overwrite_ok=True)
 
 
 filename = FILE
-content = 0
+content = 1
 x_size = XSIZE
 y_size = YSIZE
 
@@ -29,7 +29,8 @@ fullstart = datetime.now()
 
 generation_types = (2, 3)
 
-for scale in range(10, 21):
+for scale in range(20, 21
+                   ):
     x_size = XSIZE * scale
     y_size = YSIZE * scale
     ws.write(0, scale, scale)
