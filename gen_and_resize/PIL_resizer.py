@@ -9,7 +9,7 @@ size = (1000, 1000)
 PIL_times = []
 IM_times = []
 
-i = 1
+i = 3
 
 for z in range(1000, 21000, 1000):
     res_times = []

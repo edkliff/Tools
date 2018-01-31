@@ -10,3 +10,5 @@ picture_creator.py - cli-util for picture generation, i use it for creating big 
     graphic_functions - core for picture_creator
     
 gen_and_resize - generation big pack of pictures, builder for comparing PIL and ImageMagick
+
+service_status_bot - get statuses of services on remote server, and send it in Telegram

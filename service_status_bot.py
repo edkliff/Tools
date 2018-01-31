@@ -19,7 +19,7 @@ servers_and_statuses = {
 }
 
 
-""" List of channels in telegram """
+""" List of channels(chat_id) in telegram """
 tm_channels = ('channel ID',)
 """ How many times between status resolve? """
 TIMER = 15
